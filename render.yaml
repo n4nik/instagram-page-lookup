@@ -2,7 +2,7 @@ services:
   - type: web
     name: instagram-page-lookup
     runtime: python
-    plan: free
+    plan: starter
     buildCommand: pip install -r requirements.txt
     startCommand: python app.py
     envVars:
