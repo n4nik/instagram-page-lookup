@@ -67,19 +67,35 @@ PAGE = """<!doctype html><meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <title>Instagram Page Lookup</title>
 <style>
-body{font:15px system-ui;max-width:900px;margin:30px auto;padding:0 16px}
-textarea{width:100%;height:130px;font:14px monospace;padding:8px;box-sizing:border-box}
-button{padding:9px 16px;font-size:15px;margin:8px 8px 8px 0;cursor:pointer}
-table{border-collapse:collapse;width:100%;margin-top:14px}
-td,th{border:1px solid #ccc;padding:6px 10px;text-align:left}
-th{background:#14213d;color:#fff}.err{color:#b00}
+*{box-sizing:border-box}
+body{margin:0;background:#141414;color:#fff;font:15px Helvetica,Arial,sans-serif}
+header{padding:18px 4%;background:linear-gradient(#000,#141414)}
+header b{color:#e50914;font-size:26px;letter-spacing:2px;text-transform:uppercase}
+main{max-width:960px;margin:0 auto;padding:30px 16px 80px}
+h2{font-size:30px;margin:10px 0 6px}p{color:#b3b3b3;margin:0 0 14px}
+textarea{width:100%;height:130px;background:#333;color:#fff;border:0;border-radius:4px;font:14px monospace;padding:12px}
+textarea:focus{outline:2px solid #fff}
+button{padding:11px 22px;font-size:15px;font-weight:700;margin:12px 10px 8px 0;cursor:pointer;border:0;border-radius:4px;background:#e50914;color:#fff}
+button:hover{background:#f6121d}button+button{background:#6d6d6eb3}button+button:hover{background:#6d6d6e66}
+#st{color:#b3b3b3}
+table{border-collapse:collapse;width:100%;margin-top:18px}
+td,th{padding:12px 14px;text-align:left;border-bottom:1px solid #2b2b2b}
+th{color:#e50914;text-transform:uppercase;font-size:12px;letter-spacing:1px}
+tbody tr{background:#1f1f1f}tbody tr:hover{background:#2b2b2b}
+a{color:#fff}.err{color:#ff6b6b}
+footer{position:fixed;bottom:0;left:0;right:0;text-align:center;padding:12px;background:#000;color:#8c8c8c;font-size:13px}
+footer b{color:#e50914}
 </style>
+<header><b>Page Lookup</b></header>
+<main>
 <h2>Instagram Page Lookup</h2>
 <p>Paste one or more Instagram profile links (one per line).</p>
 <textarea id=in placeholder="https://www.instagram.com/username/"></textarea><br>
 <button onclick=go()>Get details</button><button onclick=copyT()>Copy table</button>
 <span id=st></span>
 <table id=t hidden><thead><tr><th>Sr. No</th><th>Page Name</th><th>Profile Link</th><th>Followers</th></tr></thead><tbody></tbody></table>
+</main>
+<footer>Made by <b>Nikhilesh Bhatia</b></footer>
 <script>
 let rows=[];
 async function go(){
